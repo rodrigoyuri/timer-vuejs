@@ -50,18 +50,20 @@
     font-weight: bold;
     font-size: 1rem;
     color: #FFFFFF;
+    box-shadow: #ebebeb 0px 6px 0px;
+    outline: none;
 }
 
 .buttons .start {
-    background-color: green;
+    background-color: #0dce0d;
 }
 
 .buttons .pause {
-    background-color: orange;
+    background-color: #ffa702;
 }
 
 .buttons .reset {
-    background-color: red;
+    background-color: #ff0000;
 }
 
 .footer {}
