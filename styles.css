@@ -32,6 +32,7 @@
     justify-content: center;
     font-family: 'Roboto Mono', monospace;
     font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .buttons {
@@ -41,13 +42,26 @@
 }
 
 .buttons button {
-    width: 90px;
+    width: 120px;
     height: 50px;
     border-radius: .4rem;
     border: none;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.buttons .start {
+    background-color: green;
+}
+
+.buttons .pause {
+    background-color: orange;
+}
+
+.buttons .reset {
+    background-color: red;
 }
 
 .footer {}
