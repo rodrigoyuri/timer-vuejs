@@ -28,12 +28,12 @@
     <div class="container">
       <div class="content-timer">
         <div class="timer">
-          <h1>{{ clock }}</h1>
+          <h1>{{ hours }}:{{ minutes }}:{{ seconds }}</h1>
         </div>
         <div class="buttons">
-          <button class="start">START</button>
-          <button class="pause">PAUSE</button>
-          <button class="reset" @click="resetTimer">RESET</button>
+          <button class="start" @click="startTimer()">START</button>
+          <button class="pause" @click="stopTimer()">PAUSE</button>
+          <button class="reset" @click="resetTimer()">RESET</button>
         </div>
       </div>
     </div>
