@@ -24,16 +24,16 @@
       </li>
     </ul>
   </nav>
-  <main>
+  <main id="app">
     <div class="container">
       <div class="content-timer">
         <div class="timer">
-          <h1>00:00</h1>
+          <h1>{{ clock }}</h1>
         </div>
         <div class="buttons">
           <button class="start">START</button>
           <button class="pause">PAUSE</button>
-          <button class="reset">RESET</button>
+          <button class="reset" @click="resetTimer">RESET</button>
         </div>
       </div>
     </div>
@@ -46,6 +46,8 @@
       <a href="https://github.com/rodrigoyuri/" target="_black"><i class="fab fa-github"></i></a>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 
 </html>
