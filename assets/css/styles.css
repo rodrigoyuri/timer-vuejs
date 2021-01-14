@@ -2,118 +2,155 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .header {}
 
 .nav-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    font-family: 'Roboto Mono', monospace;
-    height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: 'Roboto Mono', monospace;
+  height: 10rem;
 }
 
 .nav-title {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .navbar {
-    display: flex;
-    width: 30%;
-    height: 3rem;
-    list-style: none;
-    font-size: 1rem;
-    border-bottom: 1px solid #CCC;
+  display: flex;
+  width: 30%;
+  height: 3rem;
+  list-style: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #CCC;
 }
 
 .nav-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    width: 100%;
-    height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 80%;
 }
 
 .nav-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10rem;
-    height: 2.5rem;
-    text-decoration: none;
-    border: solid 1px #CCC;
-    border-radius: .5rem;
-    color: gray;
-    transition: .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 2.5rem;
+  text-decoration: none;
+  border: solid 1px #CCC;
+  border-radius: .5rem;
+  color: gray;
+  transition: .3s;
 }
 
 .nav-link:hover {
-    background-color: #3e3ec5;
-    color: #FFF;
+  background-color: #3e3ec5;
+  color: #FFF;
 }
 
 .header, .footer {
-    height: 80px;
+  height: 80px;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .content-timer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .timer {
-    display: flex;
-    justify-content: center;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
 }
 
 .buttons button {
-    width: 120px;
-    height: 50px;
-    border-radius: .4rem;
-    border: none;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-    color: #FFFFFF;
-    box-shadow: #ebebeb 0px 4px 0px;
-    outline: none;
-    cursor: pointer;
+  width: 120px;
+  height: 50px;
+  border-radius: .4rem;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #FFFFFF;
+  box-shadow: #ebebeb 0px 4px 0px;
+  outline: none;
+  cursor: pointer;
 }
 
 .buttons .start {
-    background-color: #0dce0d;
+  background-color: #0dce0d;
 }
 
 .buttons .pause {
-    background-color: #ffa702;
+  background-color: #ffa702;
 }
 
 .buttons .reset {
-    background-color: #ff0000;
+  background-color: #ff0000;
 }
 
-.footer {}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #222121;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+}
+
+.footer h4 {
+  font-size: 1rem;
+}
+
+.partner-media-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90px;
+  margin-top: 1rem;
+}
+
+.partner-media-container a {
+  text-decoration: none;
+}
+
+.fab.fa-linkedin, .fab.fa-github {
+  font-size: 1.5rem;
+  color: #FFF;
+}
+
+
+
