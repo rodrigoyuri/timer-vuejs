@@ -5,7 +5,12 @@ var app = new Vue({
     minutes: '00',
     seconds: '00',
     interval: '',
-    disable: false
+    disable: false,
+    changeButtonPause: {
+      change: false,
+      textButton: 'PAUSE',
+      icon: 'fas fa-pause'
+    }
   },
 
   methods: {
@@ -15,7 +20,15 @@ var app = new Vue({
     },
 
     stopTimer: function() {
-      clearInterval(this.interval)
+      if(this.changeButtonPause.change) {
+        this.startTimer()
+      } else {
+        clearInterval(this.interval)
+      }
+
+      this.changeButtonPause.change = !this.changeButtonPause.change
+      this.changeButtonPause.textButton = this.changeButtonPause.change ? 'RETOMAR' : 'PAUSE'
+      this.changeButtonPause.icon = this.changeButtonPause.change ? 'fas fa-step-backward' : 'fas fa-pause'
     },
     
     resetTimer: function() {
