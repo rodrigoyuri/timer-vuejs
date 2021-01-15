@@ -120,6 +120,14 @@
   background-color: #cf8700;
 }
 
+.buttons .resume {
+  background-color: #3e3ec5;
+}
+
+.buttons .resume:hover {
+  background-color: #3e3ec5;
+}
+
 .buttons .reset {
   background-color: #ff0000;
 }
