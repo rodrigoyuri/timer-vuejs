@@ -24,21 +24,28 @@ var app = new Vue({
     },
 
     executeTime: function() {
-      if(this.minutes == '60') {
-        this.hours++
+      if(this.minutes == '59') {
+        this.hours = this.validateDigit(this.hours)
         this.minutes = '00'
-      }
-
-      if(this.seconds == '60') {
-        this.minutes++
+      } else if(this.seconds == '59') {
+        this.minutes = this.validateDigit(this.minutes)
         this.seconds = '00'
+      } else {
+        this.seconds = this.validateDigit(this.seconds)
       }
-
-      if(this.seconds > 9) {
-        this.seconds++
+    },
+    
+    validateDigit: function(digit) {
+      if(digit < 9) {
+        return this.formatDigit(digit)
       }
+      return ++digit
+    },
 
-      this.seconds++
+    formatDigit: function(valueTimer) {
+      let resultValue = valueTimer.split('')
+      resultValue[1] = ++resultValue[1]
+      return resultValue.join('')
     }
   }
 })
