@@ -116,6 +116,18 @@
   background-color: #ff0000;
 }
 
+.buttons .start:hover {
+  background-color: #189b18;
+}
+
+.buttons .pause:hover {
+  background-color: #cf8700;
+}
+
+.buttons .reset:hover {
+  background-color: #d30000;
+}
+
 .footer {
   position: fixed;
   left: 0;
