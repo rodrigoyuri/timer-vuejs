@@ -108,24 +108,28 @@
   background-color: #0dce0d;
 }
 
-.buttons .pause {
-  background-color: #ffa702;
-}
-
-.buttons .reset {
-  background-color: #ff0000;
-}
-
 .buttons .start:hover {
   background-color: #189b18;
+}
+
+.buttons .pause {
+  background-color: #ffa702;
 }
 
 .buttons .pause:hover {
   background-color: #cf8700;
 }
 
+.buttons .reset {
+  background-color: #ff0000;
+}
+
 .buttons .reset:hover {
   background-color: #d30000;
+}
+
+i {
+  margin-right: 10px;
 }
 
 .footer {
