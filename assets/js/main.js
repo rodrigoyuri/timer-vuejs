@@ -4,12 +4,14 @@ var app = new Vue({
     hours: '00',
     minutes: '00',
     seconds: '00',
-    interval: ''
+    interval: '',
+    disable: false
   },
 
   methods: {
     startTimer: function() {
       this.interval = setInterval(this.executeTime, 1000)
+      this.disable = true
     },
 
     stopTimer: function() {
@@ -21,6 +23,7 @@ var app = new Vue({
         this.minutes = '00'
         this.seconds = '00'
         this.stopTimer();
+        this.disable = false
     },
 
     executeTime: function() {
