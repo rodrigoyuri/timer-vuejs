@@ -6,7 +6,7 @@ var app = new Vue({
     seconds: '00',
     interval: '',
     disable: false,
-    changeButtonPause: {
+    buttonStop: {
       change: false,
       textButton: 'PAUSE',
       icon: 'fas fa-pause'
@@ -20,23 +20,24 @@ var app = new Vue({
     },
 
     stopTimer: function() {
-      if(this.changeButtonPause.change) {
+      if(this.buttonStop.change) {
         this.startTimer()
       } else {
         clearInterval(this.interval)
       }
 
-      this.changeButtonPause.change = !this.changeButtonPause.change
-      this.changeButtonPause.textButton = this.changeButtonPause.change ? 'RETOMAR' : 'PAUSE'
-      this.changeButtonPause.icon = this.changeButtonPause.change ? 'fas fa-step-backward' : 'fas fa-pause'
+      this.changeButtonStop()
     },
     
     resetTimer: function() {
-        this.hours = '00'
-        this.minutes = '00'
-        this.seconds = '00'
-        this.stopTimer();
-        this.disable = false
+      this.initialState()   
+      clearInterval(this.interval);
+    },
+
+    changeButtonStop: function() {
+      this.buttonStop.change = !this.buttonStop.change
+      this.buttonStop.textButton = this.buttonStop.change ? 'RETOMAR' : 'PAUSE'
+      this.buttonStop.icon = this.buttonStop.change ? 'fas fa-step-backward' : 'fas fa-pause'
     },
 
     executeTime: function() {
@@ -62,6 +63,16 @@ var app = new Vue({
       let resultValue = valueTimer.split('')
       resultValue[1] = ++resultValue[1]
       return resultValue.join('')
+    },
+
+    initialState: function() {
+      this.hours = '00'
+      this.minutes = '00'
+      this.seconds = '00'
+      this.disable = false
+      this.buttonStop.change = false
+      this.buttonStop.textButton = 'PAUSE'
+      this.buttonStop.icon = 'fas fa-pause' 
     }
   }
 })
