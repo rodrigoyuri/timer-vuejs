@@ -58,6 +58,15 @@
   color: #FFF;
 }
 
+.active {
+  background-color: #3e3ec5;
+  color: #FFF;
+}
+
+.active:hover {
+  background-color: #2a2a97;
+}
+
 .header, .footer {
   height: 80px;
 }
