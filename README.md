@@ -55,7 +55,7 @@ Para começar clone este repositório em um diretório de sua preferência
 # clonar repositório
 git clone https://github.com/rodrigoyuri/timer-vuejs.git
 
-# entrar na pasta do projeto back end
+# entrar na pasta do projeto
 cd seu_repositorio/timer-vuejs
 ``` 
 
