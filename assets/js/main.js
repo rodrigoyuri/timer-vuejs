@@ -5,19 +5,26 @@ var app = new Vue({
     minutes: '00',
     seconds: '00',
     interval: '',
-    disable: false,
+    disableButtons: false,
+    disableInputsTimer: false,
     buttonStop: {
       change: false,
       textButton: 'PAUSE',
       icon: 'fas fa-pause'
     },
-    showInput: false
+    showInput: false,
+    type: 'stopWatch'
   },
 
   methods: {
     startTimer: function() {
-      this.interval = setInterval(this.executeTime, 1000)
-      this.disable = true
+      if(this.type == 'timer') {
+        this.interval = setInterval(this.executeTimer, 1000)
+      } else {
+        this.interval = setInterval(this.executeStopwatch, 1000)
+      }
+      this.disableButtons = true
+      this.disableInputsTimer = true
     },
 
     stopTimer: function() {
@@ -26,7 +33,7 @@ var app = new Vue({
       } else {
         clearInterval(this.interval)
       }
-
+      this.disableInputsTimer = false
       this.changeButtonStop()
     },
     
@@ -41,36 +48,71 @@ var app = new Vue({
       this.buttonStop.icon = this.buttonStop.change ? 'fas fa-step-backward' : 'fas fa-pause'
     },
 
-    executeTime: function() {
+    executeStopwatch: function() {
       if(this.minutes == '59') {
         this.hours = this.validateDigit(this.hours)
         this.minutes = '00'
       } else if(this.seconds == '59') {
         this.minutes = this.validateDigit(this.minutes)
-        this.seconds = '00'
+         this.seconds = '00'
       } else {
+        this.seconds = this.validateDigit(this.seconds)
+      }
+    },
+
+    executeTimer: function() {
+      if(this.hours != '00' && this.minutes == '00' && this.seconds == '00') {
+        this.hours = this.validateDigit(this.hours)
+        this.minutes = '59'
+        this.seconds = '59'
+      } else if(this.minutes != '00' && this.seconds == '00') {
+        this.minutes = this.validateDigit(this.minutes)
+         this.seconds = '59'
+      } else if(this.seconds == '00') {
+        this.resetTimer()
+      }
+      else {
         this.seconds = this.validateDigit(this.seconds)
       }
     },
     
     validateDigit: function(digit) {
-      if(digit < 9) {
-        return this.formatDigit(digit)
+      if(this.type == 'timer') {
+        if(digit <= 10) {
+          return this.formatDigit(digit)
+        }
+        return --digit  
+
+      } else {
+        if(digit < 9) {
+          return this.formatDigit(digit)
+        } 
+        return ++digit
+
       }
-      return ++digit
     },
 
     formatDigit: function(valueTimer) {
-      let resultValue = valueTimer.split('')
-      resultValue[1] = ++resultValue[1]
-      return resultValue.join('')
+      let resultValue;
+      
+      if(this.type == 'stopWatch') {
+        resultValue = valueTimer.split('')
+        resultValue[1] = ++resultValue[1]
+        return resultValue.join('')
+      } else {
+        resultValue = ['0', '0']
+        resultValue[1] = --valueTimer
+        return resultValue.join('')
+      }
+      
     },
 
     initialState: function() {
       this.hours = '00'
       this.minutes = '00'
       this.seconds = '00'
-      this.disable = false
+      this.disableButtons = false
+      this.disableInputsTimer = false
       this.buttonStop.change = false
       this.buttonStop.textButton = 'PAUSE'
       this.buttonStop.icon = 'fas fa-pause' 
@@ -78,10 +120,12 @@ var app = new Vue({
 
     renderInputTimer: function() {
       this.showInput = true
+      this.type = 'timer'
     },
 
-    renderChronometer: function() {
+    renderStopwatch: function() {
       this.showInput = false
+      this.type = 'stopWatch'
     }
   }
 })

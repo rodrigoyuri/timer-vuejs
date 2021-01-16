@@ -20,7 +20,7 @@
       <h3 class="nav-title">My Time</h3>
       <ul class="navbar">
         <li class="nav-item">
-          <a href="#" class="nav-link" @click.prevent="renderChronometer()">Cronometro</a>
+          <a href="#" class="nav-link" @click.prevent="renderStopwatch()">Cronometro</a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link" @click.prevent="renderInputTimer()">Temporizador</a>
@@ -37,20 +37,20 @@
           <div class="input-timer" v-if="showInput">
             <div class="input-timer-content">
               <i class="fas fa-hourglass-start"></i>
-              <input type="text" value="00">:
-              <input type="text" value="00">:
-              <input type="text" value="00">
+              <input type="text" placeholder="00" v-model="hours" :disabled="disableInputsTimer">:
+              <input type="text" placeholder="00" v-model="minutes" :disabled="disableInputsTimer">:
+              <input type="text" placeholder="00" v-model="seconds" :disabled="disableInputsTimer">
             </div>
           </div>
           <div class="buttons">
-            <button :class="[disable ? 'disable' : 'start']" @click="startTimer()" :disabled="disable">
+            <button :class="[disableButtons ? 'disable' : 'start']" @click="startTimer()" :disabled="disableButtons">
               <i class="fas fa-play"></i>START
             </button>
-            <button :class="[!disable ? 'disable' : 'pause', buttonStop.change ? 'resume' : '']" @click="stopTimer()"
-              :disabled="!disable">
+            <button :class="[!disableButtons ? 'disable' : 'pause', buttonStop.change ? 'resume' : '']" @click="stopTimer()"
+              :disabled="!disableButtons">
               <i :class="buttonStop.icon"></i>{{ buttonStop.textButton }}
             </button>
-            <button :class="[!disable ? 'disable' : 'reset']" @click="resetTimer()" :disabled="!disable">
+            <button :class="[!disableButtons ? 'disable' : 'reset']" @click="resetTimer()" :disabled="!disableButtons">
               <i class="fas fa-undo-alt"></i>RESET
             </button>
           </div>
