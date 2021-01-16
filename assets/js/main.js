@@ -1,5 +1,3 @@
-import { router } from './router.js'
-
 var app = new Vue({
   el: '#app',
   data: {
@@ -12,7 +10,7 @@ var app = new Vue({
       change: false,
       textButton: 'PAUSE',
       icon: 'fas fa-pause'
-    }
+    },
   },
 
   methods: {
