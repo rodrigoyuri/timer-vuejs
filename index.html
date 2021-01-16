@@ -30,6 +30,14 @@
         <div class="timer">
           <h1>{{ hours }}:{{ minutes }}:{{ seconds }}</h1>
         </div>
+        <div class="input-timer">
+          <div class="input-timer-content">
+            <i class="fas fa-hourglass-start"></i>
+            <input type="text" value="00">:
+            <input type="text" value="00">:
+            <input type="text" value="00">
+          </div>
+        </div>
         <div class="buttons">
           <button 
             :class="[disable ? 'disable' : 'start']" 

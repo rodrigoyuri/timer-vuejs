@@ -84,6 +84,39 @@
   margin-bottom: 1rem;
 }
 
+.input-timer {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.input-timer-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+  font-size: 2rem;
+}
+            
+.input-timer-content i {
+  font-size: 1.5rem;
+  color: #554e4e;
+}
+
+.input-timer input {
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  border: 1px solid #CCC;
+  border-radius: .8rem;
+  outline: none;
+  font-size: 2rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
