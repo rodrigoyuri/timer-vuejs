@@ -2,7 +2,7 @@
 
 <center>
 
-![GitHub](https://img.shields.io/github/license/rodrigoyuri)
+![GitHub](https://img.shields.io/github/license/rodrigoyuri/timer-vuejs)
 
 </center>
 
