@@ -38,10 +38,10 @@
             <i class="fas fa-play"></i>START
           </button>
           <button 
-            :class="[!disable ? 'disable' : 'pause', changeButtonPause.change ? 'resume' : '']" 
+            :class="[!disable ? 'disable' : 'pause', buttonStop.change ? 'resume' : '']" 
             @click="stopTimer()"
             :disabled="!disable">
-            <i :class="changeButtonPause.icon"></i>{{ changeButtonPause.textButton }}
+            <i :class="buttonStop.icon"></i>{{ buttonStop.textButton }}
           </button>
           <button 
             :class="[!disable ? 'disable' : 'reset']" 
