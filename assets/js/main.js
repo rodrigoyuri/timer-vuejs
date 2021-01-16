@@ -11,6 +11,7 @@ var app = new Vue({
       textButton: 'PAUSE',
       icon: 'fas fa-pause'
     },
+    showInput: false
   },
 
   methods: {
@@ -73,6 +74,14 @@ var app = new Vue({
       this.buttonStop.change = false
       this.buttonStop.textButton = 'PAUSE'
       this.buttonStop.icon = 'fas fa-pause' 
+    },
+
+    renderInputTimer: function() {
+      this.showInput = true
+    },
+
+    renderChronometer: function() {
+      this.showInput = false
     }
   }
 })

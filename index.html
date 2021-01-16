@@ -13,54 +13,52 @@
 
 <body>
   <header class="header"></header>
-  <nav class="nav-container">
-    <h3 class="nav-title">My Time</h3>
-    <ul class="navbar">
-      <li class="nav-item">
-        <a href="#" class="nav-link">Cronometro</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">Temporizador</a>
-      </li>
-    </ul>
-  </nav>
-  <main id="app">
-    <div class="container">
-      <div class="content-timer">
-        <div class="timer">
-          <h1>{{ hours }}:{{ minutes }}:{{ seconds }}</h1>
-        </div>
-        <div class="input-timer">
-          <div class="input-timer-content">
-            <i class="fas fa-hourglass-start"></i>
-            <input type="text" value="00">:
-            <input type="text" value="00">:
-            <input type="text" value="00">
+
+  <div id="app">
+
+    <nav class="nav-container" id="nav">
+      <h3 class="nav-title">My Time</h3>
+      <ul class="navbar">
+        <li class="nav-item">
+          <a href="#" class="nav-link" @click.prevent="renderChronometer()">Cronometro</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" @click.prevent="renderInputTimer()">Temporizador</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="container">
+        <div class="content-timer">
+          <div class="timer">
+            <h1>{{ hours }}:{{ minutes }}:{{ seconds }}</h1>
+          </div>
+          <div class="input-timer" v-if="showInput">
+            <div class="input-timer-content">
+              <i class="fas fa-hourglass-start"></i>
+              <input type="text" value="00">:
+              <input type="text" value="00">:
+              <input type="text" value="00">
+            </div>
+          </div>
+          <div class="buttons">
+            <button :class="[disable ? 'disable' : 'start']" @click="startTimer()" :disabled="disable">
+              <i class="fas fa-play"></i>START
+            </button>
+            <button :class="[!disable ? 'disable' : 'pause', buttonStop.change ? 'resume' : '']" @click="stopTimer()"
+              :disabled="!disable">
+              <i :class="buttonStop.icon"></i>{{ buttonStop.textButton }}
+            </button>
+            <button :class="[!disable ? 'disable' : 'reset']" @click="resetTimer()" :disabled="!disable">
+              <i class="fas fa-undo-alt"></i>RESET
+            </button>
           </div>
         </div>
-        <div class="buttons">
-          <button 
-            :class="[disable ? 'disable' : 'start']" 
-            @click="startTimer()"
-            :disabled="disable">
-            <i class="fas fa-play"></i>START
-          </button>
-          <button 
-            :class="[!disable ? 'disable' : 'pause', buttonStop.change ? 'resume' : '']" 
-            @click="stopTimer()"
-            :disabled="!disable">
-            <i :class="buttonStop.icon"></i>{{ buttonStop.textButton }}
-          </button>
-          <button 
-            :class="[!disable ? 'disable' : 'reset']" 
-            @click="resetTimer()"
-            :disabled="!disable">
-            <i class="fas fa-undo-alt"></i>RESET
-          </button>
-        </div>
       </div>
-    </div>
-  </main>
+    </main>
+
+  </div>
 
   <footer class="footer">
     <h4>&copy; Desenvolvido por Rodrigo, 2021</h4>
@@ -69,8 +67,8 @@
       <a href="https://github.com/rodrigoyuri/" target="_black"><i class="fab fa-github"></i></a>
     </div>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script type="module" src="/assets/js/main.js"></script>
 </body>
 
