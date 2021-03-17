@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/assets/img/faicon/timer.png">
+  <link rel="icon" type="image/png" href="/assets/img/favicon/timer.png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
     integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/styles.css">
@@ -20,10 +20,12 @@
       <h3 class="nav-title">My Time</h3>
       <ul class="navbar">
         <li class="nav-item">
-          <a href="#" :class="[type == 'stopWatch' ? 'nav-link active' : 'nav-link']" @click.prevent="renderStopwatch()">Cronometro</a>
+          <a href="#" :class="[type == 'stopWatch' ? 'nav-link active' : 'nav-link']"
+            @click.prevent="renderStopwatch()">Cronometro</a>
         </li>
         <li class="nav-item">
-          <a href="#" :class="[type == 'timer' ? 'nav-link active' : 'nav-link']" @click.prevent="renderInputTimer()">Temporizador</a>
+          <a href="#" :class="[type == 'timer' ? 'nav-link active' : 'nav-link']"
+            @click.prevent="renderInputTimer()">Temporizador</a>
         </li>
       </ul>
     </nav>
@@ -37,17 +39,17 @@
           <div class="input-timer" v-if="showInput">
             <div class="input-timer-content">
               <i class="fas fa-hourglass-start"></i>
-              <input type="text" placeholder="00" v-model="hours" :disabled="disableInputsTimer">:
-              <input type="text" placeholder="00" v-model="minutes" :disabled="disableInputsTimer">:
-              <input type="text" placeholder="00" v-model="seconds" :disabled="disableInputsTimer">
+              <input type="text" placeholder="00" v-model="hours" :disabled="disableInputsTimer" maxlength="2">:
+              <input type="text" placeholder="00" v-model="minutes" :disabled="disableInputsTimer" maxlength="2">:
+              <input type="text" placeholder="00" v-model="seconds" :disabled="disableInputsTimer" maxlength=2>
             </div>
           </div>
           <div class="buttons">
             <button :class="[disableButtons ? 'disable' : 'start']" @click="startTimer()" :disabled="disableButtons">
               <i class="fas fa-play"></i>START
             </button>
-            <button :class="[!disableButtons ? 'disable' : 'pause', buttonStop.change ? 'resume' : '']" @click="stopTimer()"
-              :disabled="!disableButtons">
+            <button :class="[!disableButtons ? 'disable' : 'pause', buttonStop.change ? 'resume' : '']"
+              @click="stopTimer()" :disabled="!disableButtons">
               <i :class="buttonStop.icon"></i>{{ buttonStop.textButton }}
             </button>
             <button :class="[!disableButtons ? 'disable' : 'reset']" @click="resetTimer()" :disabled="!disableButtons">
