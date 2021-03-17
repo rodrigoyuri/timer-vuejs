@@ -132,6 +132,20 @@ var app = new Vue({
     notificationSound: function() {
       let audio = new Audio('./assets/sounds/bell_ring.ogg')
       audio.play()
+    },
+
+    ruleDigit: function(e) {
+      let second = this.seconds.replace(/\D/g, '')
+      let minute = this.minutes.replace(/\D/g, '')
+      let hour = this.hours.replace(/\D/g, '')
+
+      this.seconds = second
+      this.minutes = minute
+      this.hours = hour
+      
+      if(!second) this.seconds = '00'
+      if(!minute) this.minutes = '00'
+      if(!hour) this.hours = '00'
     }
   }
 })

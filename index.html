@@ -39,9 +39,12 @@
           <div class="input-timer" v-if="showInput">
             <div class="input-timer-content">
               <i class="fas fa-hourglass-start"></i>
-              <input type="text" placeholder="00" v-model="hours" :disabled="disableInputsTimer" maxlength="2">:
-              <input type="text" placeholder="00" v-model="minutes" :disabled="disableInputsTimer" maxlength="2">:
-              <input type="text" placeholder="00" v-model="seconds" :disabled="disableInputsTimer" maxlength=2>
+              <input type="text" placeholder="00" v-model="hours" :disabled="disableInputsTimer" maxlength="2"
+                @input="ruleDigit($event)">:
+              <input type="text" placeholder="00" v-model="minutes" :disabled="disableInputsTimer" maxlength="2"
+                @input="ruleDigit($event)">:
+              <input type="text" placeholder="00" v-model="seconds" :disabled="disableInputsTimer" maxlength=2
+                @input="ruleDigit($event)">
             </div>
           </div>
           <div class="buttons">
