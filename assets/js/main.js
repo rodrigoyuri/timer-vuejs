@@ -69,6 +69,7 @@ var app = new Vue({
         this.minutes = this.validateDigit(this.minutes)
          this.seconds = '59'
       } else if(this.seconds == '00') {
+        this.notificationSound()
         this.resetTimer()
       }
       else {
@@ -126,6 +127,11 @@ var app = new Vue({
     renderStopwatch: function() {
       this.showInput = false
       this.type = 'stopWatch'
+    },
+
+    notificationSound: function() {
+      let audio = new Audio('./assets/sounds/bell_ring.ogg')
+      audio.play()
     }
   }
 })
