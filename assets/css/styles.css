@@ -7,8 +7,6 @@
   box-sizing: border-box;
 }
 
-.header {}
-
 .nav-container {
   display: flex;
   flex-direction: column;
